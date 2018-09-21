@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DemoApp"
+             x:Class="DemoApp.MainPage">
+    <StackLayout
+        Orientation="Vertical"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="FillAndExpand"
+        BackgroundColor="AliceBlue">
+        <StackLayout
+        Orientation="Horizontal"
+        VerticalOptions="Center"
+        HorizontalOptions="FillAndExpand">
+            <Label
+            x:Name="LabelFirstNumber"
+            Text="Number 1:" 
+            VerticalOptions="Center"
+            HorizontalOptions="Start" />
+            <Editor 
+            x:Name="MyTextInputNumberOne"
+            IsSpellCheckEnabled="True"
+            VerticalOptions="Center"
+            HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <StackLayout
+        Orientation="Horizontal"
+        VerticalOptions="Center"
+        HorizontalOptions="FillAndExpand">
+            <Label
+            x:Name="LabelSecondNumber"
+            Text="Number 2:" 
+            VerticalOptions="Center"
+            HorizontalOptions="Start" />
+            <Editor 
+            x:Name="MyTextInputNumberTwo"
+            IsSpellCheckEnabled="True"
+            VerticalOptions="Center"
+            HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <Button
+            x:Name="ButtonSum"
+            Text="Sum"
+            HorizontalOptions="CenterAndExpand"
+            Clicked="ButtonSum_Clicked"/>
+        <Label
+            x:Name="LabelSumOutput"
+            Text="Sum" 
+            HorizontalOptions="CenterAndExpand" />
+        <Slider
+            x:Name="SliderNumber"
+            Minimum="0"
+            Maximum="100"
+            ValueChanged="SliderNumber_ValueChanged"
+            Value="50"
+            HorizontalOptions="FillAndExpand"/>
+        <Label
+            x:Name="LabelSliderOutput"
+            Text="50" 
+            HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+
+</ContentPage>
