@@ -16,24 +16,26 @@ namespace DemoApp
 
         private void ButtonSum_Clicked(object sender, EventArgs e)
         {
-            int number1 = 0;
-            int number2 = 0;
-
-            if(!int.TryParse(MyTextInputNumberOne.Text, out number1))
-            {
-                number1 = 0;
-            }
-            if (!int.TryParse(MyTextInputNumberTwo.Text, out number2))
-            {
-                number2 = 0;
-            }
+            int number1 = parseInt(MyTextInputNumberOne.Text);
+            int number2 = parseInt(MyTextInputNumberTwo.Text);
 
             int sum = number1 + number2;
 
             LabelSumOutput.Text = sum.ToString();
         }
 
-        private void SliderNumber_ValueChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private int parseInt(String text)
+        {
+            int number = 0;
+            bool success = int.TryParse(text, out number);
+            if (!success)
+            {
+                Console.WriteLine("not a valid number");
+            }
+            return number;
+        }
+
+        private void SliderNumber_ValueChanged(object sender, ValueChangedEventArgs valueChangedEventArgs)
         {
             LabelSliderOutput.Text = SliderNumber.Value.ToString();
         }

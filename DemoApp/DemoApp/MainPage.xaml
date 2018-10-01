@@ -2,12 +2,36 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DemoApp"
-             x:Class="DemoApp.MainPage">
+             x:Class="DemoApp.MainPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <local:SimpleViewModel/>
+    </ContentPage.BindingContext>
     <StackLayout
         Orientation="Vertical"
         VerticalOptions="CenterAndExpand"
-        HorizontalOptions="FillAndExpand"
-        BackgroundColor="AliceBlue">
+        HorizontalOptions="FillAndExpand">
+        <Label
+            x:Name="MyLabel"
+            Text="{Binding Text, Mode=OneWay}" 
+            VerticalOptions="Center"
+            HorizontalOptions="CenterAndExpand" />
+        <Entry 
+            x:Name="MyTextInput"
+            IsSpellCheckEnabled="True"
+            Text="{Binding Input, Mode=OneWayToSource}" 
+            VerticalOptions="Center"
+            HorizontalOptions="FillAndExpand"/>
+        <Button
+            x:Name="ButtonSubmit"
+            Text="Submit"
+            HorizontalOptions="CenterAndExpand"
+            Command="{Binding ButtonCommand}"/>
+        <Button
+            x:Name="ButtonNavigate"
+            Text="Navigate"
+            HorizontalOptions="CenterAndExpand"
+            Command="{Binding NavigateCommand}"/>
         <StackLayout
         Orientation="Horizontal"
         VerticalOptions="Center"
@@ -17,7 +41,7 @@
             Text="Number 1:" 
             VerticalOptions="Center"
             HorizontalOptions="Start" />
-            <Editor 
+            <Entry 
             x:Name="MyTextInputNumberOne"
             IsSpellCheckEnabled="True"
             VerticalOptions="Center"
@@ -32,7 +56,7 @@
             Text="Number 2:" 
             VerticalOptions="Center"
             HorizontalOptions="Start" />
-            <Editor 
+            <Entry 
             x:Name="MyTextInputNumberTwo"
             IsSpellCheckEnabled="True"
             VerticalOptions="Center"
