@@ -1,87 +1,114 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DemoApp"
              x:Class="DemoApp.MainPage"
              Title="{Binding Title}">
+
+
     <ContentPage.BindingContext>
-        <local:SimpleViewModel/>
+        <local:MainPageViewModel />
     </ContentPage.BindingContext>
+
     <StackLayout
-        Orientation="Vertical"
-        VerticalOptions="CenterAndExpand"
-        HorizontalOptions="FillAndExpand">
-        <Label
-            x:Name="MyLabel"
-            Text="{Binding Text, Mode=OneWay}" 
-            VerticalOptions="Center"
-            HorizontalOptions="CenterAndExpand" />
-        <Entry 
-            x:Name="MyTextInput"
-            IsSpellCheckEnabled="True"
-            Text="{Binding Input, Mode=OneWayToSource}" 
-            VerticalOptions="Center"
-            HorizontalOptions="FillAndExpand"/>
-        <Button
-            x:Name="ButtonSubmit"
-            Text="Submit"
-            HorizontalOptions="CenterAndExpand"
-            Command="{Binding ButtonCommand}"/>
-        <Button
-            x:Name="ButtonNavigate"
-            Text="Navigate"
-            HorizontalOptions="CenterAndExpand"
-            Command="{Binding NavigateCommand}"/>
+        x:Name="Homework">
         <StackLayout
-        Orientation="Horizontal"
-        VerticalOptions="Center"
-        HorizontalOptions="FillAndExpand">
+            x:Name="Homework1"
+            Orientation="Vertical"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="Honeydew">
+            <BoxView VerticalOptions="Center"
+                     HorizontalOptions="FillAndExpand"
+                     HeightRequest="1"
+                     Color="#5b5d68" />
+            <StackLayout
+                Orientation="Horizontal"
+                VerticalOptions="Center"
+                HorizontalOptions="FillAndExpand">
+                <Label
+                    x:Name="LabelFirstNumber"
+                    Text="Number 1:"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start" />
+                <Entry
+                    x:Name="MyTextInputNumberOne"
+                    IsSpellCheckEnabled="True"
+                    Text="{Binding Number1, Mode=OneWayToSource}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                VerticalOptions="Center"
+                HorizontalOptions="FillAndExpand">
+                <Label
+                    x:Name="LabelSecondNumber"
+                    Text="Number 2:"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start" />
+                <Entry
+                    x:Name="MyTextInputNumberTwo"
+                    IsSpellCheckEnabled="True"
+                    Text="{Binding Number2, Mode=OneWayToSource}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <Button
+                x:Name="ButtonSum"
+                Text="Sum"
+                HorizontalOptions="CenterAndExpand"
+                Command="{Binding AddCommand}" />
             <Label
-            x:Name="LabelFirstNumber"
-            Text="Number 1:" 
-            VerticalOptions="Center"
-            HorizontalOptions="Start" />
-            <Entry 
-            x:Name="MyTextInputNumberOne"
-            IsSpellCheckEnabled="True"
-            VerticalOptions="Center"
-            HorizontalOptions="FillAndExpand"/>
+                x:Name="LabelSumOutput"
+                Text="{Binding Sum, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
+            <Slider
+                x:Name="SliderNumber"
+                Minimum="0"
+                Maximum="100"
+                Value="{Binding SliderValue, Mode=TwoWay}"
+                HorizontalOptions="FillAndExpand" />
+            <Label
+                x:Name="LabelSliderOutput"
+                Text="{Binding SliderValue, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
+            <BoxView VerticalOptions="Center"
+                     HorizontalOptions="FillAndExpand"
+                     HeightRequest="1"
+                     Color="#5b5d68" />
         </StackLayout>
         <StackLayout
-        Orientation="Horizontal"
-        VerticalOptions="Center"
-        HorizontalOptions="FillAndExpand">
+            x:Name="Homework2"
+            Orientation="Vertical"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="Aquamarine">
+            <StackLayout
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand">
+                <Button
+                    x:Name="ButtonIncrement"
+                    Text="Increment"
+                    HorizontalOptions="CenterAndExpand"
+                    Command="{Binding IncrementCommand}" />
+                <Button
+                    x:Name="ButtonIncrementAndForward"
+                    Text="Sum And Navigate"
+                    HorizontalOptions="CenterAndExpand"
+                    Command="{Binding NavigateCommand}" />
+            </StackLayout>
             <Label
-            x:Name="LabelSecondNumber"
-            Text="Number 2:" 
-            VerticalOptions="Center"
-            HorizontalOptions="Start" />
-            <Entry 
-            x:Name="MyTextInputNumberTwo"
-            IsSpellCheckEnabled="True"
-            VerticalOptions="Center"
-            HorizontalOptions="FillAndExpand"/>
+                x:Name="LabelIncrementOutput"
+                Text="{Binding Increment, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand" />
+            <BoxView VerticalOptions="Center"
+                     HorizontalOptions="FillAndExpand"
+                     HeightRequest="1"
+                     Color="#5b5d68" />
         </StackLayout>
-        <Button
-            x:Name="ButtonSum"
-            Text="Sum"
-            HorizontalOptions="CenterAndExpand"
-            Clicked="ButtonSum_Clicked"/>
-        <Label
-            x:Name="LabelSumOutput"
-            Text="Sum" 
-            HorizontalOptions="CenterAndExpand" />
-        <Slider
-            x:Name="SliderNumber"
-            Minimum="0"
-            Maximum="100"
-            ValueChanged="SliderNumber_ValueChanged"
-            Value="50"
-            HorizontalOptions="FillAndExpand"/>
-        <Label
-            x:Name="LabelSliderOutput"
-            Text="50" 
-            HorizontalOptions="CenterAndExpand" />
     </StackLayout>
 
 </ContentPage>

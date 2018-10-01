@@ -9,13 +9,15 @@ namespace DemoApp
 {
 	public class SecondPage : ContentPage
 	{
-		public SecondPage ()
+		public SecondPage (int increment, int sum)
 		{
 			Content = new StackLayout {
 				Children = {
-					new Label { Text = "Welcome to Xamarin.Forms!" }
-				}
+					new Label { Text = $"Increment: {increment.ToString()}" },
+				    new Label { Text = $"Sum: {sum.ToString()}" }
+                }
 			};
+		    Title = "Overview";
 		}
 	}
 }
